@@ -1,0 +1,141 @@
+<section class=" container d-flex justify-content-center my-3">
+    <form action="/profile" class="col-xl-8 col-md-12 form" [formGroup]="Reg_form" (ngSubmit)="onSave(Reg_form)">
+        <div class="card-body p-md-5 text-black">
+            <h3 class="mb-5 text-uppercase">Registration form</h3>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="f_name">First name</label>
+                        <input type="text" id="f_name" formControlName="f_name" class="form-control form-control-lg" />
+                        <label class="text-danger"
+                            *ngIf="Reg_form.get('f_name')?.hasError('required') && (Reg_form.get('f_name')?.dirty || Reg_form.get('f_name')?.touched)">First Name
+                            is required</label>
+                        <label class="text-danger"
+                            *ngIf="Reg_form.get('f_name')?.hasError('pattern') && (Reg_form.get('f_name')?.dirty || Reg_form.get('f_name')?.touched)">
+                            Name not a number </label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="l_name">Last name</label>
+                        <input type="text" id="l_name" formControlName="l_name" class="form-control form-control-lg" />
+                        <label class="text-danger"
+                            *ngIf="Reg_form.get('l_name')?.hasError('required') && (Reg_form.get('l_name')?.dirty || Reg_form.get('l_name')?.touched)"> Last Name
+                            is required</label>
+                        <label class="text-danger"
+                            *ngIf="Reg_form.get('l_name')?.hasError('pattern') && (Reg_form.get('l_name')?.dirty || Reg_form.get('l_name')?.touched)">
+                            Name not a number </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="age">Age</label>
+                <input type="text" id="age" formControlName="age" class="form-control form-control-lg" />
+                <label class="text-danger"
+                            *ngIf="Reg_form.get('age')?.hasError('required') && (Reg_form.get('age')?.dirty || Reg_form.get('age')?.touched)">Age
+                            is required</label>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="phone">Phone number</label>
+                <input type="text" id="phone" formControlName="phone" class="form-control form-control-lg" />
+                <label class="text-danger"
+                *ngIf="Reg_form.get('phone')?.hasError('required') && (Reg_form.get('phone')?.dirty || Reg_form.get('phone')?.touched)"> Phone Number
+                is required</label>
+            <label class="text-danger"
+                *ngIf="Reg_form.get('phone')?.hasError('pattern') && (Reg_form.get('phone')?.dirty || Reg_form.get('phone')?.touched)">Phone number must be 10 number </label>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="address">Address</label>
+                <input type="text" id="address" formControlName="address" class="form-control form-control-lg" />
+                <label class="text-danger"
+                *ngIf="Reg_form.get('address')?.hasError('required') && (Reg_form.get('address')?.dirty || Reg_form.get('address')?.touched)"> Address
+                is required</label>
+            <label class="text-danger"
+                *ngIf="Reg_form.get('address')?.hasError('maxlength') && (Reg_form.get('address')?.dirty || Reg_form.get('address')?.touched)">Address
+                maximum 50 character </label>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="education">Education</label>
+                <input type="text" id="education" formControlName="education" class="form-control form-control-lg" />
+                <label class="text-danger"
+                *ngIf="Reg_form.get('education')?.hasError('required') && (Reg_form.get('education')?.dirty || Reg_form.get('education')?.touched)">Education
+                is required</label>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email ID</label>
+                <input type="text" id="email" formControlName="email" class="form-control form-control-lg" />
+                <label class="text-danger"
+                *ngIf="Reg_form.get('email')?.hasError('required') && (Reg_form.get('email')?.dirty || Reg_form.get('email')?.touched)"> Email
+                is required</label>
+            <label class="text-danger"
+                *ngIf="Reg_form.get('email')?.hasError('pattern') && (Reg_form.get('email')?.dirty || Reg_form.get('email')?.touched)">Enter
+                a valid email address </label>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label>
+                <input type="text" id="password" formControlName="password" class="form-control form-control-lg" />
+                <label class="text-danger"
+                *ngIf="Reg_form.get('password')?.hasError('required') && (Reg_form.get('password')?.dirty || Reg_form.get('password')?.touched)"> Password
+                is required</label>
+            <label class="text-danger"
+                *ngIf="Reg_form.get('password')?.hasError('pattern') && (Reg_form.get('password')?.dirty || Reg_form.get('password')?.touched)">Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                letter and 1 number </label>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="c_password">Confirm Password</label>
+                <input type="text" id="c_password" formControlName="c_password" class="form-control form-control-lg" />
+                <label class="text-danger"
+                *ngIf="Reg_form.get('c_password')?.hasError('required') && (Reg_form.get('c_password')?.dirty || Reg_form.get('c_password')?.touched)"> Password
+                is required</label>
+            <label class="text-danger"
+                *ngIf="Reg_form.get('c_password')?.hasError('mismatch') && (Reg_form.get('c_password')?.dirty || Reg_form.get('c_password')?.touched)">Password MisMatch </label>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="message ">Message</label>
+                <input type="text" id="message " formControlName="message" class="form-control form-control-lg" />
+                <label class="text-danger"
+                *ngIf="Reg_form.get('message')?.hasError('required') && (Reg_form.get('message')?.dirty || Reg_form.get('message')?.touched)"> Phone Number
+                is required</label>
+            <label class="text-danger"
+                *ngIf="Reg_form.get('message')?.hasError('maxlength') && (Reg_form.get('message')?.dirty || Reg_form.get('message')?.touched)">Message
+                maximum 15 character 
+             </label>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label class="form-label ps-1" >Country</label>
+
+                    <select  class="form-select" formControlName="country" (change)="onSelected(Reg_form.value.country)">
+                        
+                        <ng-container *ngFor="let item of countries; let i=index">
+                            <option value="{{i}}">{{item}}</option>
+                        </ng-container>
+                        
+                    </select>
+
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label class="form-label ps-1">State</label>
+
+                    <select  class="form-select" formControlName="state">
+                              <ng-container *ngFor="let item of states; let i=index">
+                            <option value="{{i}}">{{item}}</option>
+                        </ng-container>
+                       
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end pt-3">
+                <button type="reset" class="btn btn-light btn-lg">Reset all</button>
+                <button type="submit" [disabled]="Reg_form.invalid" class="btn btn-success btn-lg ms-2">Submit</button>
+            </div>
+
+        </div>
+    </form>
+</section>
