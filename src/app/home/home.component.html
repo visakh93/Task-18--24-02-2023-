@@ -91,13 +91,13 @@
                 *ngIf="Reg_form.get('c_password')?.hasError('required') && (Reg_form.get('c_password')?.dirty || Reg_form.get('c_password')?.touched)"> Password
                 is required</label>
             <label class="text-danger"
-                *ngIf="Reg_form.get('c_password')?.hasError('mismatch') && (Reg_form.get('c_password')?.dirty || Reg_form.get('c_password')?.touched)">Password MisMatch </label>
+                *ngIf="Reg_form.get('c_password')?.hasError('mismatch') && (Reg_form.get('c_password')?.dirty || Reg_form.get('c_password')?.touched)">Enter correct password </label>
             </div>
             <div class="form-outline mb-4">
                 <label class="form-label" for="message ">Message</label>
                 <input type="text" id="message " formControlName="message" class="form-control form-control-lg" />
                 <label class="text-danger"
-                *ngIf="Reg_form.get('message')?.hasError('required') && (Reg_form.get('message')?.dirty || Reg_form.get('message')?.touched)"> Phone Number
+                *ngIf="Reg_form.get('message')?.hasError('required') && (Reg_form.get('message')?.dirty || Reg_form.get('message')?.touched)"> Message
                 is required</label>
             <label class="text-danger"
                 *ngIf="Reg_form.get('message')?.hasError('maxlength') && (Reg_form.get('message')?.dirty || Reg_form.get('message')?.touched)">Message
@@ -116,6 +116,9 @@
                         </ng-container>
                         
                     </select>
+                    <label class="text-danger"
+                    *ngIf="Reg_form.get('country')?.hasError('required') && (Reg_form.get('country')?.dirty || Reg_form.get('country')?.touched)"> Country
+                    is required</label>
 
                 </div>
                 <div class="col-md-6 mb-4">
@@ -127,13 +130,16 @@
                         </ng-container>
                        
                     </select>
+                    <label class="text-danger"
+                    *ngIf="Reg_form.get('state')?.hasError('required') && (Reg_form.get('state')?.dirty || Reg_form.get('state')?.touched)"> State
+                    is required</label>
 
                 </div>
             </div>
 
             <div class="d-flex justify-content-end pt-3">
                 <button type="reset" class="btn btn-light btn-lg">Reset all</button>
-                <button type="submit" [disabled]="Reg_form.invalid"  class="btn btn-success btn-lg ms-2">Submit</button>
+                <button type="submit"  [disabled]="Reg_form.invalid"  class="btn btn-success btn-lg ms-2">Submit</button>
             </div>
 
         </div>

@@ -81,7 +81,7 @@ onSave(regForm:FormGroup){
         
        this.formService.setData(this.profileData)
 
-       this.router.navigate(['/profile'])
+       this.router.navigate(['./profile']);
     }
 }
 checkComfirmPassword(password:string,c_password:string){
