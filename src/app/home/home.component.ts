@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormServeService } from '../form-serve.service';
 
 
@@ -23,7 +24,7 @@ export class HomeComponent  implements OnInit{
     ['Havana','Camaguey','Cienfuegos','Granma','Guantanamo','Holguin']
   ]
   states:any;
-  constructor(private fb:FormBuilder,private formService:FormServeService){}
+  constructor(private fb:FormBuilder,private formService:FormServeService, private router:Router){}
 profileData={
   f_name:'',
   l_name:'',
@@ -63,6 +64,7 @@ onSelected(value:number){
  
 }
 onSave(regForm:FormGroup){
+
   
     if(regForm.valid){
         this.profileData.f_name=regForm.value.f_name;
@@ -78,6 +80,8 @@ onSave(regForm:FormGroup){
         console.log(this.profileData);
         
        this.formService.setData(this.profileData)
+
+       this.router.navigate(['/profile'])
     }
 }
 checkComfirmPassword(password:string,c_password:string){

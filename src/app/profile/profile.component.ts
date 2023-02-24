@@ -8,20 +8,7 @@ import { FormServeService } from '../form-serve.service';
 })
 export class ProfileComponent implements OnInit {
 constructor(private formService:FormServeService ){}
-profile={
-  f_name:'',
-  l_name:'',
-  age:'',
-  phone:undefined,
-  address:'',
-  education:'',
-  email:'',
-  password:'',
-  message:'',
-  country:'',
-  state:''
-
-}
+profile:any;
 ngOnInit(){
 
  this.profile= this.formService.getData();
